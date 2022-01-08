@@ -35,7 +35,7 @@ class OrderSeeder extends Seeder
         for($i = 0; $i < 10; $i++) {
             for($j = 0; $j < $orderNum; $j++) {
                 array_push($orders, [
-                    'room_id' => $roomId,
+                    'room_id' => $randomIds[$i],
                     'price' => 3200,
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
