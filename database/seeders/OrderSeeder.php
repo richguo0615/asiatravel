@@ -43,7 +43,7 @@ class OrderSeeder extends Seeder
             }
 
             // reduce num
-            if ($i == 4) {
+            if ($i == 3) {
                 continue; // produce same order nums in rooms[3] & rooms[4]
             }
             $orderNum -= 10;
