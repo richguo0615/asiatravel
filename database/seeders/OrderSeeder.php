@@ -18,15 +18,16 @@ class OrderSeeder extends Seeder
     public function run()
     {
         $orders = array();
-        
+        $createdAt = (new Carbon('2021-02-10'))->format('Y-m-d H:i:s');
+
         // create order to each room by random
         $randomIds = Room::select('id')->inRandomOrder()->get()->pluck('id')->toArray();
         foreach($randomIds as $roomId) {
             array_push($orders, [
                 'room_id' => $roomId,
                 'price' => 2800,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => $createdAt,
+                'created_at' => $createdAt,
             ]);
         }
 
@@ -37,8 +38,8 @@ class OrderSeeder extends Seeder
                 array_push($orders, [
                     'room_id' => $randomIds[$i],
                     'price' => 3200,
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    'updated_at' => $createdAt,
+                    'created_at' => $createdAt,
                 ]);
             }
 
