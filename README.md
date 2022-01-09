@@ -28,10 +28,19 @@ php artisan serve
 
 ### SQL query
 ```
-PropertyController::class, getTopsByOrderNum
+# code
+PropertyController::class -> getTopsByOrderNum
+
+# sql
+SELECT p.id, p.`name`, COUNT(*) AS order_nums FROM properties AS p
+LEFT JOIN rooms AS r ON p.id = r.property_id
+INNER JOIN orders AS o ON r.id = o.room_id
+WHERE o.created_at BETWEEN DATE('2021-02-01 00:00:00') AND DATE('2021-02-28 23:59:59')
+GROUP BY r.id
+ORDER BY order_nums DESC, p.id ASC;
 ```
 
-### SQL for import
+### 建立資料表與資料的SQL
 ```
 database/asiatravel.sql
 ```
