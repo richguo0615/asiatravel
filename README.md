@@ -1,6 +1,7 @@
 ### step1.
 ```
 composer install
+cp .env.example .env
 ```
 
 ### step2. Check MySQL connection, then migrate
@@ -42,5 +43,7 @@ ORDER BY order_nums DESC, p.id ASC;
 
 ### 建立資料表與資料的SQL
 ```
-database/asiatravel.sql
+database/properties.sql
+database/rooms.sql
+database/orders.sql
 ```
